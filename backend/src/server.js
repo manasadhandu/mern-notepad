@@ -46,8 +46,10 @@ const PORT = process.env.PORT || 5000;
 connectDB();
 
 app.use(express.json());
-app.use(cors({ origin: "https://vercel.com/manasadhandu04-2018s-projects/mern-notepad-tjv7" })); // or better: origin: "https://your-vercel-url.vercel.app"
-
+app.use(cors({
+  origin: "https://mern-notepad-t2re.vercel.app",  // ← your current live Vercel URL
+  credentials: true,  // if you use cookies
+}));
 app.use("/api/auth", authRoutes);
 app.use("/api/notes", notesRoutes);
 
